@@ -1,7 +1,6 @@
 ---
 name: "Patrick Ginther"
 role: Graduate Student
-order: 7
 # photo: ./photos/member-graduate-student.jpg
 email: patrick.s.ginther@vanderbilt.edu
 ---

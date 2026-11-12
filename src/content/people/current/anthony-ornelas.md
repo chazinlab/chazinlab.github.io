@@ -1,7 +1,6 @@
 ---
 name: "Anthony Ornelas"
 role: Research Assistant
-order: 9
 # photo: ./photos/member-graduate-student.jpg
 email: anthony.g.ornelas@vanderbilt.edu
 ---

@@ -18,6 +18,10 @@ _Avoid_: Study, research item
 Someone currently working in the lab, including the PI.
 _Avoid_: Staff, team member, current person
 
+**Role**:
+A member's position in the lab, such as Postdoctoral Fellow. The roles form one ranked list, which sets the order of members on the People page.
+_Avoid_: Title, position, rank
+
 **Alumnus**:
 A former member, listed with their years in the lab and where they are now. The plural is alumni.
 _Avoid_: Former member, past member, graduate

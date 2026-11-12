@@ -25,15 +25,16 @@ Requires Node 22.23 or later.
 src/
   site.config.ts          Developer settings: lab name, affiliation, PubMed search (no editor content)
   content.config.ts       What each content file must contain (validated at build time)
-  content/                All editable content (Markdown); the only folder editors touch
+  content/                All editable content (Markdown, plus the list of roles); the only folder editors touch
     themes/               One file per research theme
     research/             One file per project
     people/current/       One file per current member
     people/alumni/        One file per former member
+    people/roles.ts       The roles a member can have, in People-page order
     pages/home.md         Mission, home figure, featured papers
     pages/contact.md      Address, email, directions, "Joining the lab"
   data/publications.json  Generated from PubMed: don't edit by hand
-  lib/                    Data modules (publications, research themes, pages)
+  lib/                    Data modules (publications, research themes, people, pages)
   components/             Citation, Figure, PersonCard, ProjectCard
   layouts/BaseLayout.astro  Header, navigation, footer
   pages/                  One file per page

@@ -1,7 +1,6 @@
 ---
 name: "Ashima Chopra"
 role: Postdoctoral Fellow
-order: 6
 # photo: ./photos/member-graduate-student.jpg
 email: ashima.chopra@vanderbilt.edu
 ---

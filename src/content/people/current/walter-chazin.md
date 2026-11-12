@@ -1,7 +1,6 @@
 ---
 name: Walter Chazin
 role: Principal Investigator
-order: 1
 # photo: ./photos/walter-chazin.jpg
 email: walter.chazin@vanderbilt.edu
 ---

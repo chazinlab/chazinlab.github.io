@@ -5,6 +5,7 @@
 import { defineCollection, reference } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { roles } from './content/people/roles';
 import { publicationSchema } from './lib/publication-schema';
 
 /** PubMed IDs, written as plain numbers: [38500596, 38466836] */
@@ -48,9 +49,8 @@ const members = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
-      role: z.string(),
-      /** Position on the People page: 1 comes first. */
-      order: z.number(),
+      /** One of the roles in src/content/people/roles.ts; sets their position on the People page. */
+      role: z.enum(roles),
       /** Path to a square headshot, relative to this file, e.g. ./photos/jane-doe.jpg */
       photo: image().optional(),
       email: z.email().optional(),

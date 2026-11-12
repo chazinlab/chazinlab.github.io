@@ -7,10 +7,7 @@ interface Props {
   member: Member;
 }
 
-const { name, role, photo, email, Bio } = Astro.props.member;
-// First letter of the first and last names, e.g. "Walter J. Chazin" → "WC".
-const letters = name.split(/\s+/).flatMap((word) => word.match(/\p{L}/u) ?? []);
-const initials = letters.length > 1 ? letters[0] + letters.at(-1) : letters.join('');
+const { name, initials, role, photo, email, Bio } = Astro.props.member;
 ---
 
 <article class="person">

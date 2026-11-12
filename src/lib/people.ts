@@ -1,10 +1,14 @@
 /** The only reader of lab members and alumni: pages get render-ready models from here. */
 import type { ImageMetadata } from 'astro';
 import { getCollection } from 'astro:content';
-import { byOrder, renderBody, type Rendered } from './content';
+import { roles } from '../content/people/roles';
+import { renderBody, type Rendered } from './content';
+import { byRoleThenLastName, initials } from './member-display';
 
 export interface Member {
   name: string;
+  /** Shown in place of a missing photo. */
+  initials: string;
   role: string;
   photo: ImageMetadata | undefined;
   email: string | undefined;
@@ -19,13 +23,14 @@ export interface Alumnus {
   nowAt: string;
 }
 
-/** Current members in `order`. */
+/** Current members, by role in the order set in src/content/people/roles.ts, then by last name. */
 export async function members(): Promise<Member[]> {
-  const entries = (await getCollection('members')).sort(byOrder);
+  const inDisplayOrder = byRoleThenLastName(roles);
+  const entries = (await getCollection('members')).sort((a, b) => inDisplayOrder(a.data, b.data));
   return Promise.all(
     entries.map(async (entry) => {
       const { name, role, photo, email } = entry.data;
-      return { name, role, photo, email, Bio: await renderBody(entry) };
+      return { name, initials: initials(name), role, photo, email, Bio: await renderBody(entry) };
     }),
   );
 }

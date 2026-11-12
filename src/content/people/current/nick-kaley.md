@@ -1,7 +1,6 @@
 ---
 name: "Nick Kaley"
 role: Postdoctoral Fellow
-order: 5
 # photo: ./photos/member-graduate-student.jpg
 email: Nicholas.kaley@vanderbilt.edu
 ---

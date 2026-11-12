@@ -1,7 +1,6 @@
 ---
 name: "Rachel Service, Ph.D."
 role: Lab Manager
-order: 2
 # photo: ./photos/member-graduate-student.jpg
 email: rachel.service@vanderbilt.edu
 ---

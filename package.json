@@ -11,7 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "publications": "node scripts/fetch-publications.ts",
-    "test": "node --test \"scripts/**/*.test.ts\""
+    "test": "node --test \"scripts/**/*.test.ts\" \"src/**/*.test.ts\""
   },
   "dependencies": {
     "astro": "^7.4.11"
