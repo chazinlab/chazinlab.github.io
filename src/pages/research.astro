@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { researchThemes } from '../lib/research';
+
+const themes = await researchThemes();
+---
+
+<BaseLayout title="Research">
+  <section class="section">
+    <div class="container">
+      <h1>Research</h1>
+    </div>
+  </section>
+
+  {
+    themes.map((theme) => (
+      <section class="section" id={theme.id}>
+        <div class="container">
+          <h2>{theme.name}</h2>
+          <div class="lede">
+            <theme.Summary />
+          </div>
+          <div class="projects">
+            {theme.projects.map((project) => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+</BaseLayout>
+
+<style>
+  .projects {
+    margin-top: var(--space-4);
+  }
+</style>

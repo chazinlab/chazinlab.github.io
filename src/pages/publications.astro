@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Citation from '../components/Citation.astro';
+import { publicationsByYear } from '../lib/publications';
+
+const years = await publicationsByYear();
+const total = years.reduce((sum, group) => sum + group.publications.length, 0);
+---
+
+<BaseLayout title="Publications">
+  <section class="section">
+    <div class="container">
+      <h1>Publications</h1>
+      <p class="lede">{total} publications, updated automatically from PubMed.</p>
+
+      <div class="search" hidden>
+        <label for="pub-search" class="visually-hidden">Search publications</label>
+        <input id="pub-search" type="search" placeholder="Search by title, author, journal or year" />
+        <p id="pub-status" role="status" aria-live="polite"></p>
+      </div>
+
+      {
+        years.map(({ year, publications }) => (
+          <section class="year-group">
+            <h2>{year}</h2>
+            <ul>
+              {publications.map((pub) => (
+                <li data-search={[pub.title, ...pub.authors, pub.journal, pub.year, pub.id].join(' ').toLowerCase()}>
+                  <Citation pub={pub} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Progressive enhancement: without JavaScript the full list still shows.
+  const search = document.querySelector<HTMLElement>('.search')!;
+  const input = document.querySelector<HTMLInputElement>('#pub-search')!;
+  const status = document.querySelector<HTMLElement>('#pub-status')!;
+  const items = [...document.querySelectorAll<HTMLElement>('[data-search]')];
+  const groups = [...document.querySelectorAll<HTMLElement>('.year-group')];
+
+  search.hidden = false;
+  input.addEventListener('input', () => {
+    const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    for (const item of items) {
+      item.hidden = !words.every((word) => item.dataset.search!.includes(word));
+      if (!item.hidden) shown++;
+    }
+    for (const group of groups) {
+      group.hidden = !group.querySelector('[data-search]:not([hidden])');
+    }
+    status.textContent = words.length ? `${shown} matching publication${shown === 1 ? '' : 's'}` : '';
+  });
+</script>
+
+<style>
+  .search {
+    margin-block: var(--space-4);
+  }
+
+  input {
+    width: 100%;
+    max-width: 36rem;
+    padding: 0.75rem 1rem;
+    font: inherit;
+    color: var(--heading);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+
+  input:focus {
+    outline: 2px solid var(--link);
+    outline-offset: 1px;
+  }
+
+  #pub-status {
+    margin-top: var(--space-1);
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .year-group {
+    margin-top: var(--space-4);
+  }
+
+  .year-group h2 {
+    padding-bottom: var(--space-1);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .year-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+</style>

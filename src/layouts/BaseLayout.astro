@@ -1,0 +1,151 @@
+---
+import { Font } from 'astro:assets';
+import { site } from '../site.config';
+import { contactPage } from '../lib/pages';
+import '../styles/global.css';
+
+interface Props {
+  /** Page name for the browser tab; omit on the home page. */
+  title?: string;
+  description?: string;
+}
+
+const { title, description = `${site.name}, ${site.affiliation}` } = Astro.props;
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/research', label: 'Research' },
+  { href: '/people', label: 'People' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/contact', label: 'Contact' },
+];
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const contact = await contactPage();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title ? `${title} · ${site.name}` : site.name}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <Font cssVariable="--font-sans" preload />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="wordmark" href="/">{site.name}</a>
+        <nav aria-label="Main">
+          <ul>
+            {
+              nav.map(({ href, label }) => (
+                <li>
+                  <a href={href} aria-current={href === currentPath ? 'page' : undefined}>
+                    {label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="footer-name">{site.name}</p>
+          <address>
+            {contact.data.address.map((line) => <span>{line}</span>)}
+          </address>
+        </div>
+        <p>
+          <a href={`mailto:${contact.data.email}`}>{contact.data.email}</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-3);
+    padding-block: var(--space-3);
+  }
+
+  .wordmark {
+    color: var(--heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav a {
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding-block: 0.25rem;
+    border-bottom: 2px solid transparent;
+  }
+
+  nav a:hover {
+    color: var(--heading);
+  }
+
+  nav a[aria-current='page'] {
+    color: var(--heading);
+    border-bottom-color: var(--link);
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    margin-top: var(--space-5);
+    padding-block: var(--space-4);
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .footer-name {
+    color: var(--heading);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+  }
+
+  address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

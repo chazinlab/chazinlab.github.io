@@ -1,43 +1,44 @@
-# Astro Starter Kit: Minimal
+# Chazin Lab website
 
-```sh
-npm create astro@latest -- --template minimal
+The website of the Chazin Lab, Department of Biochemistry, Vanderbilt University. It's a static site built with [Astro](https://astro.build).
+
+- **Lab members updating content:** see [HOW_TO_UPDATE.md](HOW_TO_UPDATE.md).
+- **Design decisions:** see [PROJECT_BRIEF.md](PROJECT_BRIEF.md).
+- **Vocabulary** (Theme, Project, Member, Alumnus, Key paper, Featured paper): see [GLOSSARY.md](GLOSSARY.md).
+
+## Developing
+
+Requires Node 22.23 or later.
+
+| Command | What it does |
+|---|---|
+| `npm install` | Install dependencies |
+| `npm run dev` | Start a local preview at http://localhost:4321 |
+| `npm run build` | Build the site into `dist/` |
+| `npm run publications` | Refresh `src/data/publications.json` from PubMed |
+| `npm test` | Run the PubMed adapter tests |
+| `npx astro check` | Type-check everything |
+
+## Where things live
+
+```
+src/
+  site.config.ts          Developer settings: lab name, affiliation, PubMed search (no editor content)
+  content.config.ts       What each content file must contain (validated at build time)
+  content/                All editable content (Markdown); the only folder editors touch
+    themes/               One file per research theme
+    research/             One file per project
+    people/current/       One file per current member
+    people/alumni/        One file per former member
+    pages/home.md         Mission, home figure, featured papers
+    pages/contact.md      Address, email, directions, "Joining the lab"
+  data/publications.json  Generated from PubMed: don't edit by hand
+  lib/                    Data modules (publications, research themes, pages)
+  components/             Citation, Figure, PersonCard, ProjectCard
+  layouts/BaseLayout.astro  Header, navigation, footer
+  pages/                  One file per page
+  styles/global.css       Design tokens: colors, spacing, type
+scripts/                  PubMed fetcher and its tests
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Fonts:** Montserrat is a stand-in for Proxima Nova. To switch, see the comment in `astro.config.mjs`.

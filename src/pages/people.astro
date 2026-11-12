@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PersonCard from '../components/PersonCard.astro';
+import * as people from '../lib/people';
+
+const [members, alumni] = await Promise.all([people.members(), people.alumni()]);
+---
+
+<BaseLayout title="People">
+  <section class="section">
+    <div class="container">
+      <h1>People</h1>
+      <div class="members">
+        {members.map((member) => <PersonCard member={member} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Alumni</h2>
+      <ul class="alumni">
+        {
+          alumni.map((alum) => (
+            <li>
+              <span class="alum-name">{alum.name}</span>
+              <span class="alum-meta">
+                {alum.role}, {alum.years}
+              </span>
+              <span class="alum-now">{alum.nowAt}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .members {
+    display: grid;
+    gap: var(--space-5) var(--space-4);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+    margin-top: var(--space-4);
+  }
+
+  .alumni {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .alumni li {
+    display: grid;
+    gap: 0 var(--space-3);
+    padding-block: var(--space-2);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  @media (min-width: 48rem) {
+    .alumni li {
+      grid-template-columns: 1fr 1fr 1.5fr;
+    }
+  }
+
+  .alum-name {
+    color: var(--heading);
+    font-weight: 600;
+  }
+
+  .alum-meta {
+    color: var(--muted);
+  }
+</style>

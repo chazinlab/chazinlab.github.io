@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { contactPage } from '../lib/pages';
+
+const { data: { email, address, directionsUrl }, Content } = await contactPage();
+---
+
+<BaseLayout title="Contact">
+  <section class="section">
+    <div class="container columns">
+      <div>
+        <h1>Contact</h1>
+        <address>
+          {address.map((line) => <span>{line}</span>)}
+        </address>
+        <p><a href={`mailto:${email}`}>{email}</a></p>
+        {directionsUrl && <p><a href={directionsUrl}>Directions →</a></p>}
+      </div>
+      <div>
+        <h2>Joining the lab</h2>
+        <Content />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .columns {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  @media (min-width: 48rem) {
+    .columns {
+      grid-template-columns: 1fr 1.4fr;
+    }
+  }
+
+  address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-2);
+  }
+</style>

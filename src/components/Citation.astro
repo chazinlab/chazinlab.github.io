@@ -1,0 +1,66 @@
+---
+/** One paper in standard citation format, with the PI's name in bold. */
+import { site } from '../site.config';
+import type { Publication } from '../lib/publication-schema';
+
+interface Props {
+  pub: Publication;
+}
+
+const { pub } = Astro.props;
+// PubMed's citation style, e.g. "2024;300(4):105-12." (parts are left out when PubMed has none).
+let source = String(pub.year);
+if (pub.volume || pub.issue) source += `;${pub.volume}`;
+if (pub.issue) source += `(${pub.issue})`;
+if (pub.pages) source += `:${pub.pages}`;
+source += '.';
+---
+
+<div class="citation">
+  <p class="title">{pub.title}</p>
+  <p class="authors">
+    {
+      pub.authors.map((name, i) => (
+        <>
+          {name === site.piPubmedName ? <strong>{name}</strong> : name}
+          {i < pub.authors.length - 1 && ', '}
+        </>
+      ))
+    }
+  </p>
+  <p class="source"><i>{pub.journal}</i>. {source}</p>
+  <p class="links">
+    <a href={`https://pubmed.ncbi.nlm.nih.gov/${pub.id}/`}>PubMed</a>
+    {pub.doi && <a href={`https://doi.org/${pub.doi}`}>DOI</a>}
+    {pub.pmcid && <a href={`https://pmc.ncbi.nlm.nih.gov/articles/${pub.pmcid}/`}>Free full text</a>}
+  </p>
+</div>
+
+<style>
+  .citation p {
+    margin: 0;
+    max-width: none;
+  }
+
+  .title {
+    color: var(--heading);
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .authors,
+  .source {
+    font-size: 0.9rem;
+  }
+
+  .authors strong {
+    color: var(--heading);
+  }
+
+  .citation .links {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+  }
+</style>

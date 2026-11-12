@@ -1,0 +1,62 @@
+---
+/** A current lab member: headshot (or initials), name, role, bio, email. */
+import { Image } from 'astro:assets';
+import type { Member } from '../lib/people';
+
+interface Props {
+  member: Member;
+}
+
+const { name, role, photo, email, Bio } = Astro.props.member;
+// First letter of the first and last names, e.g. "Walter J. Chazin" → "WC".
+const letters = name.split(/\s+/).flatMap((word) => word.match(/\p{L}/u) ?? []);
+const initials = letters.length > 1 ? letters[0] + letters.at(-1) : letters.join('');
+---
+
+<article class="person">
+  {
+    photo ? (
+      <Image class="photo" src={photo} alt={name} width={320} height={320} />
+    ) : (
+      <div class="photo initials" aria-hidden="true">
+        {initials}
+      </div>
+    )
+  }
+  <h3>{name}</h3>
+  <p class="role">{role}</p>
+  <div class="bio"><Bio /></div>
+  {email && <a href={`mailto:${email}`}>{email}</a>}
+</article>
+
+<style>
+  .person {
+    font-size: 0.95rem;
+  }
+
+  .photo {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--space-2);
+  }
+
+  .initials {
+    display: grid;
+    place-items: center;
+    background: var(--placeholder-bg);
+    color: var(--muted);
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    margin-bottom: 0.15rem;
+  }
+
+  .role {
+    color: var(--muted);
+    margin-bottom: var(--space-1);
+  }
+</style>

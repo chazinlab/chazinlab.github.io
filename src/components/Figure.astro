@@ -1,0 +1,56 @@
+---
+/** A figure with its caption, or a grey placeholder box until an image is added. */
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  image: ImageMetadata | undefined;
+  caption: string;
+  /** Hint for image optimization: how wide the figure is shown on screen. */
+  sizes?: string;
+}
+
+const { image, caption, sizes = '(min-width: 72rem) 72rem, 100vw' } = Astro.props;
+---
+
+<figure>
+  {
+    image ? (
+      <Image src={image} alt={caption} sizes={sizes} widths={[480, 800, 1200, 1600]} />
+    ) : (
+      <div class="placeholder" aria-hidden="true">
+        Figure placeholder
+      </div>
+    )
+  }
+  <figcaption>{caption}</figcaption>
+</figure>
+
+<style>
+  figure {
+    margin: 0;
+  }
+
+  img,
+  .placeholder {
+    width: 100%;
+    border-radius: var(--radius);
+  }
+
+  .placeholder {
+    aspect-ratio: 16 / 9;
+    display: grid;
+    place-items: center;
+    background: var(--placeholder-bg);
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  figcaption {
+    margin-top: var(--space-1);
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+/** A research project: title, figure, description, and key papers. */
+import Figure from './Figure.astro';
+import Citation from './Citation.astro';
+import type { ResearchProject } from '../lib/research';
+
+interface Props {
+  project: ResearchProject;
+}
+
+const { title, figure, caption, Description, keyPapers } = Astro.props.project;
+---
+
+<article class="project">
+  <h3>{title}</h3>
+  <div class="body">
+    <Figure image={figure} caption={caption} sizes="(min-width: 60rem) 34rem, 100vw" />
+    <div class="text">
+      <Description />
+      {
+        keyPapers.length > 0 && (
+          <section class="key-papers">
+            <h4 class="eyebrow">Key papers</h4>
+            <ul>
+              {keyPapers.map((pub) => (
+                <li>
+                  <Citation pub={pub} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+    </div>
+  </div>
+</article>
+
+<style>
+  .project + .project {
+    margin-top: var(--space-5);
+  }
+
+  .body {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 60rem) {
+    .body {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      align-items: start;
+    }
+  }
+
+  .key-papers {
+    margin-top: var(--space-3);
+  }
+
+  .key-papers ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+</style>
