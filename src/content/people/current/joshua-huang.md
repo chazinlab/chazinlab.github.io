@@ -1,7 +1,7 @@
 ---
 name: 'Joshua Huang'
 role: Graduate Student
-order: 3
+order: 6
 photo: ./photos/joshua-huang.jpg
 email: joshua.huang@vanderbilt.edu
 ---
