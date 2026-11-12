@@ -1,5 +1,5 @@
 ---
-name: "Elwood Mullins"
+name: "Elwood Mullins, Ph.D."
 role: Research Assistant Professor
 order: 3
 # photo: ./photos/member-graduate-student.jpg
