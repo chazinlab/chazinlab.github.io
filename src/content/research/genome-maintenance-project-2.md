@@ -1,8 +1,8 @@
 ---
-title: '[Placeholder] Genome maintenance project title'
+title: 'Investigating novel RAD51 antagonist protein RADX'
 theme: genome-maintenance
 order: 2
-# figure: ./figures/your-figure.png
+figure: ./figures/RADX-figure.png
 caption: '[Placeholder] One sentence describing what the figure shows.'
 keyPapers: []
 ---
