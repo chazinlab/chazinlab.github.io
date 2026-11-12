@@ -2,7 +2,7 @@
 
 You don't need to know how to code. Everything you'll change is plain text in the `src/content/` folder.
 
-> **Not live yet:** automatic rebuilds and the monthly publication refresh start once the site is published on GitHub. Until then, changes are previewed locally.
+> **Where things are:** the code lives at https://github.com/chazinlab/chazinlab.github.io and the live site is https://chazinlab.github.io.
 
 ## The basics: editing a file on GitHub
 
