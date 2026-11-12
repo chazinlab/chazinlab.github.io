@@ -1,5 +1,5 @@
 ---
-name: '[Joshua Huang] Member Name'
+name: 'Joshua Huang'
 role: Graduate Student
 order: 3
 # photo: ./photos/joshua.huang.jpg
