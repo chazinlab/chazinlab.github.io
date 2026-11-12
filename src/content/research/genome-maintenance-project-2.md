@@ -1,5 +1,5 @@
 ---
-title: 'Investigating novel RAD51 antagonist protein RADX'
+title: 'Investigating molecular mechanisms of RAD51 antagonist protein RADX'
 theme: genome-maintenance
 order: 2
 figure: ./figures/RADX-figure.png
@@ -7,6 +7,6 @@ caption: '[Placeholder] One sentence describing what the figure shows.'
 keyPapers: []
 ---
 
-[Placeholder] First paragraph: the biological question this project addresses and why it matters. Two to four sentences written for a curious undergraduate or prospective graduate student.
+[Placeholder] 
 
-[Placeholder] Second paragraph: what the lab has found and the approaches used (for example NMR, X-ray crystallography, cryo-EM, biochemistry, cell biology).
+[Placeholder] 
