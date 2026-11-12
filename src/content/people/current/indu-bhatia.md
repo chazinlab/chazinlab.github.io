@@ -1,5 +1,5 @@
 ---
-name: "Indu Bhatia"
+name: "Indu Bhatia, Ph.D."
 role: Postdoctoral Fellow
 order: 4
 # photo: ./photos/member-graduate-student.jpg
