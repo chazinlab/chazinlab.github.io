@@ -40,5 +40,3 @@ src/
   styles/global.css       Design tokens: colors, spacing, type
 scripts/                  PubMed fetcher and its tests
 ```
-
-**Fonts:** Montserrat is a stand-in for Proxima Nova. To switch, see the comment in `astro.config.mjs`.
