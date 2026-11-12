@@ -1,7 +1,7 @@
 ---
 name: "Indu Bhatia, Ph.D."
 role: Postdoctoral Fellow
-order: 4
+order: 6
 # photo: ./photos/member-graduate-student.jpg
 email: indu.bhatia@vanderbilt.edu
 ---
