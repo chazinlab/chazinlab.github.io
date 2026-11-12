@@ -1,5 +1,5 @@
 ---
-name: 'Areetha D'Souza'
+name: "Areetha D'Souza"
 role: Research Assistant Professor
 order: 2
 # photo: ./photos/member-graduate-student.jpg
