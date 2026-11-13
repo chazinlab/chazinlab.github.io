@@ -1,8 +1,8 @@
 ---
-title: '[Placeholder] Genome maintenance project title'
+title: 'Investigating molecular mechanisms of nucleotide excision repair'
 theme: genome-maintenance
 order: 1
-# figure: ./figures/your-figure.png
+figure: ./figures/NER-figure.jpg
 caption: '[Placeholder] One sentence describing what the figure shows.'
 keyPapers: []
 ---

@@ -1,5 +1,5 @@
 ---
-name: "Areetha D'Souza"
+name: "Areetha D'Souza, Ph.D."
 role: Research Assistant Professor
 # photo: ./photos/member-graduate-student.jpg
 email: areetha.d.souza@vanderbilt.edu

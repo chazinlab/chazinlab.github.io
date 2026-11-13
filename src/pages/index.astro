@@ -70,6 +70,14 @@ const [themes, featured] = await Promise.all([researchThemes(), featuredPublicat
     line-height: 1.55;
   }
 
+  /* A tall image (such as a group photo) is capped so it fits on one screen; a wide figure still fills the width. */
+  .hero :global(figure img) {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 38rem;
+  }
+
   /* Flows to any number of themes: two or three side by side on wide screens, stacked on phones. */
   .themes {
     display: grid;

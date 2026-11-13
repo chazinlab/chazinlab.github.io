@@ -4,6 +4,7 @@
 export const roles = [
   'Principal Investigator',
   'Research Assistant Professor',
+  'Staff Scientist',
   'Lab Manager',
   'Postdoctoral Fellow',
   'Graduate Student',
