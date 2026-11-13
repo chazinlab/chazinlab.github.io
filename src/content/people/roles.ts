@@ -9,4 +9,5 @@ export const roles = [
   'Postdoctoral Fellow',
   'Graduate Student',
   'Research Assistant',
+  'Undergraduate Researcher',
 ] as const;
