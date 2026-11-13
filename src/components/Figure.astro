@@ -8,15 +8,17 @@ interface Props {
   caption: string;
   /** Hint for image optimization: how wide the figure is shown on screen. */
   sizes?: string;
+  /** Set for a figure at the top of a page, so the browser loads it straight away instead of waiting for a scroll. */
+  priority?: boolean;
 }
 
-const { image, caption, sizes = '(min-width: 72rem) 72rem, 100vw' } = Astro.props;
+const { image, caption, sizes = '(min-width: 72rem) 72rem, 100vw', priority = false } = Astro.props;
 ---
 
 <figure>
   {
     image ? (
-      <Image src={image} alt={caption} sizes={sizes} widths={[480, 800, 1200, 1600]} />
+      <Image src={image} alt={caption} sizes={sizes} widths={[480, 800, 1200, 1600]} priority={priority} />
     ) : (
       <div class="placeholder" aria-hidden="true">
         Figure placeholder

@@ -11,7 +11,7 @@ const piPubmedName = 'Chazin WJ';
 
 export const site = {
   name: 'Chazin Lab',
-  affiliation: 'Department of Biochemistry, Vanderbilt University',
+  affiliation: 'Departments of Biochemistry and Chemistry, Vanderbilt University',
 
   /** Shown in bold in citations. */
   piPubmedName,

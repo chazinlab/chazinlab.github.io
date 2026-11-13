@@ -111,6 +111,8 @@ img {
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: var(--space-1);
+  /* A short label, not running text: the reading-width limit on paragraphs would wrap it early. */
+  max-width: none;
 }
 
 .visually-hidden {

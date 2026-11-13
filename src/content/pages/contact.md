@@ -1,6 +1,6 @@
 ---
 name: Walter Chazin
-email: walter.chazin@vanderbilt.edu
+email: walter.j.chazin@vanderbilt.edu
 phone: (615) 936-2210
 address:
   - Departments of Biochemistry and Chemistry

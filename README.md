@@ -1,6 +1,6 @@
 # Chazin Lab website
 
-The website of the Chazin Lab, Department of Biochemistry, Vanderbilt University. It's a static site built with [Astro](https://astro.build).
+The website of the Chazin Lab, Departments of Biochemistry and Chemistry, Vanderbilt University. It's a static site built with [Astro](https://astro.build).
 
 - **Lab members updating content:** see [HOW_TO_UPDATE.md](HOW_TO_UPDATE.md).
 - **Vocabulary** (Theme, Project, Member, Alumnus, Key paper, Featured paper): see [GLOSSARY.md](GLOSSARY.md).
