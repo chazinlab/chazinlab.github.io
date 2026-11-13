@@ -17,7 +17,7 @@ const [themes, featured] = await Promise.all([researchThemes(), featuredPublicat
       <p class="eyebrow">{site.affiliation}</p>
       <h1>{site.name}</h1>
       <div class="lede mission"><home.Content /></div>
-      <Figure image={home.data.figure} caption={home.data.caption} />
+      <Figure image={home.data.figure} caption={home.data.caption} priority />
     </div>
   </section>
 
