@@ -1,8 +1,9 @@
 ---
-import { Font } from 'astro:assets';
+import { Font, Image } from 'astro:assets';
 import { site } from '../site.config';
 import { contactDetails } from '../lib/pages';
 import '../styles/global.css';
+import vanderbiltV from '../assets/vanderbilt-v.png';
 
 interface Props {
   /** Page name for the browser tab; omit on the home page. */
@@ -38,7 +39,17 @@ const contact = await contactDetails();
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="wordmark" href="/">{site.name}</a>
+        <a class="wordmark" href="/">
+          <span>{site.name}</span>
+          <Image
+            class="wordmark-logo"
+            src={vanderbiltV}
+            alt="Vanderbilt University"
+            height={56}
+            loading="eager"
+            densities={[1, 2]}
+          />
+        </a>
         <nav aria-label="Main">
           <ul>
             {
@@ -76,8 +87,12 @@ const contact = await contactDetails();
 </html>
 
 <style>
+  /* Black bar with white text: the header re-points the site's colour tokens for itself. */
   .site-header {
-    border-bottom: 1px solid var(--rule);
+    --text: #ffffff;
+    --heading: #ffffff;
+    --link: #cfae70;
+    background: #000000;
   }
 
   .header-inner {
@@ -90,11 +105,19 @@ const contact = await contactDetails();
   }
 
   .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--heading);
     font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: -0.01em;
     text-decoration: none;
+  }
+
+  .wordmark-logo {
+    height: 1.75rem;
+    width: auto;
   }
 
   nav ul {
@@ -117,6 +140,7 @@ const contact = await contactDetails();
 
   nav a:hover {
     color: var(--heading);
+    border-bottom-color: rgb(255 255 255 / 0.5);
   }
 
   nav a[aria-current='page'] {
