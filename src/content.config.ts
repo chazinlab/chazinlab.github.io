@@ -94,7 +94,11 @@ const home = defineCollection({
 const contact = defineCollection({
   loader: page('contact'),
   schema: z.object({
+    /** Who to contact. Leave it out to show the address alone. */
+    name: z.string().optional(),
     email: z.email(),
+    /** Written the way it should be shown, e.g. (615) 555-0100. Leave it out to hide it. */
+    phone: z.string().optional(),
     /** Each line of the mailing address, top to bottom. */
     address: z.array(z.string()).min(1),
     /** A Google Maps or Apple Maps link. Leave it out to hide the Directions link. */

@@ -2,18 +2,24 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { contactPage } from '../lib/pages';
 
-const { data: { email, address, directionsUrl }, Content } = await contactPage();
+const { data: { name, email, phone, address, directionsUrl }, Content } = await contactPage();
 ---
 
 <BaseLayout title="Contact">
   <section class="section">
+    <div class="container">
+      <h1>Contact</h1>
+    </div>
     <div class="container columns">
       <div>
-        <h1>Contact</h1>
+        {name && <h2>{name}</h2>}
         <address>
           {address.map((line) => <span>{line}</span>)}
         </address>
-        <p><a href={`mailto:${email}`}>{email}</a></p>
+        <p class="reach">
+          {phone && <a href={`tel:${phone.replace(/[^\d+]/g, '')}`}>{phone}</a>}
+          <a href={`mailto:${email}`}>{email}</a>
+        </p>
         {directionsUrl && <p><a href={directionsUrl}>Directions →</a></p>}
       </div>
       <div>
@@ -34,6 +40,12 @@ const { data: { email, address, directionsUrl }, Content } = await contactPage()
     .columns {
       grid-template-columns: 1fr 1.4fr;
     }
+  }
+
+  .reach {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   address {

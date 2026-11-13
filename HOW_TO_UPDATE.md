@@ -69,7 +69,7 @@ Edit `src/content/pages/home.md`. The sentence below the `---` is the mission st
 In `src/content/pages/home.md`, list PubMed IDs: `featuredPapers: [38500596, 38466836]`. Leave it as `[]` to show the five most recent papers instead.
 
 ### Change the address, email, directions link or "Joining the lab" text
-Edit `src/content/pages/contact.md`. The settings at the top hold the email, the address (one line per `-`) and the directions link. The text below the `---` is the "Joining the lab" section. The address also appears in the footer of every page.
+Edit `src/content/pages/contact.md`. The settings at the top hold Dr. Chazin's name, the email, the phone number, the address (one line per `-`) and the directions link. The text below the `---` is the "Joining the lab" section. The address also appears in the footer of every page.
 
 ## Publications
 
