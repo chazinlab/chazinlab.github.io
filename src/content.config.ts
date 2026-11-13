@@ -52,7 +52,7 @@ const members = defineCollection({
       name: z.string(),
       /** One of the roles in src/content/people/roles.ts; sets their position on the People page. */
       role: z.enum(roles),
-      /** Path to a square headshot, relative to this file, e.g. ./photos/jane-doe.jpg */
+      /** Path to an upright head-and-shoulders photo, relative to this file, e.g. ./photos/jane-doe.jpg */
       photo: image().optional(),
       email: z.email().optional(),
     }),

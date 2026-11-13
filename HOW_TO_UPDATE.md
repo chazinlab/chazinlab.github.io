@@ -37,7 +37,7 @@ Jane studies how proteins repair damaged DNA. Outside the lab she plays the cell
 2. Change `name` and `role`. Then write their bio below the `---`.
    - The page places people by `role` automatically, and sorts people with the same role by last name, so there is nothing to renumber.
    - `role` must match one of the roles listed in `src/content/people/roles.ts` exactly, including capital letters. To use a new role, or to change which roles come first, edit the list in that file.
-3. **Photo (optional):** upload a square headshot to `src/content/people/current/photos/` (for example `jane-doe.jpg`), then add the line `photo: ./photos/jane-doe.jpg` to the settings.
+3. **Photo (optional):** upload a head-and-shoulders photo, upright (taller than wide), to `src/content/people/current/photos/` (for example `jane-doe.jpg`), then add the line `photo: ./photos/jane-doe.jpg` to the settings.
 4. **Email (optional):** add `email: jane.doe@vanderbilt.edu`.
 
 ### When someone leaves the lab

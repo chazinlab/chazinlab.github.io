@@ -13,7 +13,7 @@ const { name, initials, role, photo, email, Bio } = Astro.props.member;
 <article class="person">
   {
     photo ? (
-      <Image class="photo" src={photo} alt={name} width={320} height={320} />
+      <Image class="photo" src={photo} alt={name} width={400} height={500} fit="cover" position="top" />
     ) : (
       <div class="photo initials" aria-hidden="true">
         {initials}
@@ -31,11 +31,15 @@ const { name, initials, role, photo, email, Bio } = Astro.props.member;
     font-size: 0.95rem;
   }
 
+  /* A portrait frame with lightly rounded corners, so the whole face and shoulders show.
+     A photo taller than the frame loses its bottom edge; a wider one loses a little from each side. */
   .photo {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
+    width: 10rem;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
     object-fit: cover;
+    object-position: top;
     margin-bottom: var(--space-2);
   }
 
