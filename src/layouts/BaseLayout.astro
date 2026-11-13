@@ -87,8 +87,12 @@ const contact = await contactDetails();
 </html>
 
 <style>
+  /* Black bar with white text: the header re-points the site's colour tokens for itself. */
   .site-header {
-    border-bottom: 1px solid var(--rule);
+    --text: #ffffff;
+    --heading: #ffffff;
+    --link: #cfae70;
+    background: #000000;
   }
 
   .header-inner {
@@ -136,6 +140,7 @@ const contact = await contactDetails();
 
   nav a:hover {
     color: var(--heading);
+    border-bottom-color: rgb(255 255 255 / 0.5);
   }
 
   nav a[aria-current='page'] {
