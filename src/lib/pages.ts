@@ -2,16 +2,24 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { renderBody, type Rendered } from './content';
 
+type Page = 'home' | 'contact';
+
+async function page<P extends Page>(name: P): Promise<CollectionEntry<P>> {
+  const [entry] = await getCollection(name);
+  if (!entry) throw new Error(`src/content/pages/${name}.md is missing.`);
+  return entry;
+}
+
+const withBody = async <E extends CollectionEntry<Page>>(entry: E): Promise<{ data: E['data']; Content: Rendered }> => ({
+  data: entry.data,
+  Content: await renderBody(entry),
+});
+
 /** Mission text (Content), home figure, featured papers. */
-export const homePage = async () => withBody((await getCollection('home'))[0], 'home');
+export const homePage = async () => withBody(await page('home'));
 
 /** Contact details and the "Joining the lab" text (Content). */
-export const contactPage = async () => withBody((await getCollection('contact'))[0], 'contact');
+export const contactPage = async () => withBody(await page('contact'));
 
-async function withBody<E extends CollectionEntry<'home' | 'contact'>>(
-  entry: E | undefined,
-  page: string,
-): Promise<{ data: E['data']; Content: Rendered }> {
-  if (!entry) throw new Error(`src/content/pages/${page}.md is missing.`);
-  return { data: entry.data, Content: await renderBody(entry) };
-}
+/** Contact details alone, for the footer of every page. */
+export const contactDetails = async () => (await page('contact')).data;

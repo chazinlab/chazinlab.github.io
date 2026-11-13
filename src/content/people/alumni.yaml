@@ -1,0 +1,243 @@
+# Every former lab member (alumnus), in one list. The People page sorts them by last name,
+# so a new person can go anywhere in this file.
+#
+# To add someone, copy these lines and change the text:
+#
+#   - name: Jane Doe
+#     now: Postdoctoral Fellow, Stanford University
+#
+# - `now` is where they are today. Leave the line out if the lab doesn't know.
+# - If `now` contains a colon (:), wrap it in quotes: now: 'Scientist: Structural Biology, Genentech'
+# - For an alumnus who has died, write `inMemoriam: true` instead of `now`.
+
+- name: Amit Aggarwal
+- name: Mikael Akke
+  now: Professor, Physical Chemistry, University of Gothenburg, Sweden
+- name: Ileana Alers
+  now: Independent Energy Broker
+- name: Swati Balakrishnan
+- name: Anindita Basu
+  now: Scientific Writer Lead at Indegene, India
+- name: Shibani Bhattacharya
+  now: Scientist at the New York Structural Biology Center
+- name: Giuseppe Bifulco
+  now: Professor of Pharmacy, University of Salerno, Italy
+- name: Alexandra Blee
+- name: Marivic Botuyan
+  now: Res. Associate Professor, Mayo Clinic – Rochester, MN
+- name: Chris Brosey
+  now: Research Instructor, MD Anderson
+- name: Christopher G. Bunick
+  now: Associate Professor (Dept. of Dermatology) at Yale University
+- name: Goran Carlstrom
+  now: Research Scientist, Astra Pharmaceuticals, Sweden
+- name: Benjamin Chagot
+  now: Associate Professor at the University of Nancy, France
+- name: Marie-Eve Chagot
+  now: Lab Manager
+- name: Daniel Chazin
+  now: Physical Therapist, St. Thomas Hospital, Nashville, TN
+- name: Huiqing Chen
+- name: Shiow-Meei Chen
+  now: Consultant, Nu-Mega Inc., San Diego, CA
+- name: Seth Chitayat
+  now: Research Faculty at the University of Western Ontario, Canada
+- name: Yongseok (Sam) Cho
+- name: John Christodoulou
+  now: Professor at the University College London, UK
+- name: John Cordoba
+- name: Orlando Crescenzi
+  now: Professor at the University of Naples, Italy
+- name: Steve Damo
+  now: Asst. Professor and Chair of Chemistry, Fisk University
+- name: Brian Dattilo
+  now: Director, Business Development at Waisman Biomanufacturing, Madison, WI
+- name: Adalberto Diaz
+  now: Asst. Professor
+- name: Yoana Dimitrova
+  now: Senior Scientist at Genentech
+- name: Andrew Dorfeuille
+  now: Grad Student, MIT
+- name: Torbjorn Drakenberg
+  inMemoriam: true
+- name: Joshua Eggold
+  now: Graduate student, Stanford
+- name: Aaron Ehlinger
+  now: Scientist, Abbvie
+- name: Mark Ehrhardt
+  now: Research Scientist at Monsanto
+- name: Peggy Eis
+  now: Co-Founder and Chief Technology Officer, Population Bio, Inc., Madison, WI
+- name: Patricia Fagan-Jones
+  now: Consultant, San Diego, CA
+- name: Michael Feldkamp
+  now: Research Scientist, Janssen Pharmaceuticals
+- name: Brian Fuller
+- name: Kaitlyn Gallagher
+  now: Graduate Student, Vanderbilt
+- name: Yue (Ryan) Gao
+- name: Carlos Garcia
+  now: MD
+- name: Nicholas P. George
+  now: Independent Consultant
+- name: Benjamin Gilston
+  now: Contract Scientist, KBI Biopharma
+- name: Brad Girod
+  now: MD, Salem, OR
+- name: Judd Glasser
+  now: Staff Physician at La Jolla Emergency Specialists, Encinitas, CA
+- name: Luigi Gomez-Paloma
+  inMemoriam: true
+- name: Denille Gonzales
+- name: Ryan Guillen
+  now: Resident, Miller School of Medicine
+- name: Casey Gullet
+- name: Simone Harrison
+  now: Graduate student, UCSF
+- name: Laura Hench
+- name: Marilyn Holt
+  now: Data Scientist, Vanderbilt-Ingram Cancer Center
+- name: Haitao Hu
+  now: Senior Analytical Chemist in Discovery Chemistry Research & Technologies at Eli Lilly, Indianapolis, IN
+- name: Michael Hunter
+  now: Scientist, Centocor (Johnson and Johnson) San Diego, CA
+- name: Kristen Huseman
+  now: Data Scientist, Vanderbilt-Ingram Cancer Center
+- name: Arun Kumar Alphonse Ignatius
+  now: Biopharmaceutical Scientist, Macrogenics, Rockville, MD
+- name: Christopher Johnson
+  now: Assistant Professor at Mississippi State University
+- name: Sophie Jouan
+  now: Research Programs Manager, Vanderbilt University Medical Center, Nashville, TN
+- name: Mrinmoyee Kalasikam
+  now: Medical school student, University of Tennessee HSC
+- name: Sarvesh Kaushik
+  now: Anesthesiology Resident at Brigham and Women’s Hospital, Boston, MA
+- name: Randal R Ketchem
+  now: Research Scientist, Immunex – Seattle, WA
+- name: Craig Vander Kooi
+  now: Associate Professor, University of Kentucky
+- name: Johan Kordell
+  now: Senior Partner, Lustgarten Foundation, Copenhagen, Denmark
+- name: Natasha Kozlyuk
+  now: Research Scientist, Janssen Pharmaceuticals
+- name: Young-Tae Lee
+  now: Senior Staff Scientist at University of Minnesota
+- name: Michael Lubienski
+  now: Patent Attorney, SmithKline Beecham, London, UK
+- name: Jens Chr. Madsen
+  now: Applications Scientist, Bruker Spectrospin, Stockholm, Sweden
+- name: Lena Mäler
+  now: Professor, Royal Institute – Stockholm University, Sweden
+- name: Srinivas Malliahgari
+- name: Anders Malmendal
+  now: Professor at the University of Copenhagen
+- name: Sheryll Mangahas
+- name: Noel Maxwell
+  now: Research Analyst at Vanderbilt University Medical Center, Nashville, TN
+- name: Georges Mer
+  now: Professor, Mayo Clinic – Rochester, MN
+- name: Kateryna Le Meur (Ogorodnik)
+- name: Remy Le Meur
+  now: Staff Scientist, Institut Curie, Paris, France
+- name: Tycho E.T. Mevissen
+  now: Postdoctoral Fellow, Harvard University
+- name: Susan Meyn
+  now: Associate Vice President for Research, Vanderbilt University
+- name: Siobhan Miick
+  now: Senior Research Scientist, Nanogen, Inc., San Diego, CA
+- name: Wesley Murphy
+- name: Anais Naretto
+  now: Research Scientist SARomics, Lund, Sweden
+- name: Melanie Nelson
+  now: Independent Consultant in Informatics, San Diego, CA
+- name: Drew Neufer
+  now: Research Assistant, Vanderbilt University
+- name: Giang Nguyen
+- name: Kyle Nordquist
+  now: Staff Scientist at the University of Illinois-Chicago
+- name: Mohiuddin Ovee
+  now: Associate QC Scientist, Bristol-Myers Squibb
+- name: Durbis J. Castillo Pazos
+- name: Keven Pereira
+  now: High school teacher, Nashville TN
+- name: Randika “Randy” Perera
+  now: Scientist, MilliporeSigma – St. Louis, MO
+- name: Kelly Perry
+  now: Public Health Researcher and Scientific Officer, Washington, DC
+- name: Linh Phung
+- name: Megan Pierce
+- name: Barbara Potts
+  now: Patent Agent, La Jolla, CA
+- name: Dalyir Pretto
+  now: Staff Clinical Scientist, UC Davis
+- name: Reid Putney
+  now: Startup in North Carolina
+- name: Christian Ramsoomair
+- name: Antonio Randazzo
+  now: Professor of Organic Chemistry at the University of Naples, Italy
+- name: Subodh Rathi
+- name: Barat Reddy
+- name: Jessica Estevez Rios
+- name: Amalchi Castillo Rodriguez
+- name: Aslin Rodriguez-Nassif
+  now: Laboratory Scientist, Pfizer
+- name: Michelle Roh
+  now: Endodontics Resident at NYU School of Dentistry, New York, NY
+- name: Jan Rydzewski
+  now: Director – Analytical Chemistry, Molecular Medicine Research Institute, UC-Santa Cruz, Sunnyvale, CA
+- name: Jeffrey Rymer
+  now: Amazon, Nashville, TN
+- name: Lauren Salay
+  now: Postdoctoral fellow
+- name: Mallika Sastry
+  now: Research Scientist, NIH
+- name: Skanda Sastry
+  now: Research Associate, Apex, NC
+- name: Libbey Schwertman
+  now: Scientist, Pfizer, St. Louis
+- name: Vikas Shah
+  now: Assistant Professor at Emory University
+- name: Jonathan Sheehan
+  now: Research Associate Professor, Washington University School of Medicine in St. Louis
+- name: Mike Shell
+  now: Asst. Professor, University of Virginia-Wise
+- name: Nick Skelton
+  now: Senior Research Scientist, Genentech, Inc, San Francisco, CA
+- name: Jarrod Smith
+  now: Research Professor, Center for Structural Biology, Vanderbilt University
+- name: Sarah Soss
+  inMemoriam: true
+- name: Michael Starling
+  now: Kentucky Teachers Training Program
+- name: Melissa Stauffer
+  now: President, Scientific Editing Solutions, Inc.
+- name: Norie Sugitani
+  now: Postdoctoral Fellow, U of Pittsburgh
+- name: Jennifer Sun
+  now: MD
+- name: Matthew Thompson
+  now: Assistant Professor, University of Alabama
+- name: Agnieszka Topolska-Wos
+  now: Biotech Startup
+- name: Christina Troll
+- name: Sivaraja Vaithiyalingam
+- name: Drew Vartia
+  now: Radiochemist, Lawrence, KS
+- name: Sudha Veeraraghavan
+  now: Scientific Review Officer- CSR, NIH
+- name: Victoria Washington
+- name: Christoph Weber
+  now: Chief Technology Officer, MyShroom, San Diego, CA
+- name: Brian Weiner
+  now: Scientist, Project Development Team at Monsanto
+- name: Kevin Weiss
+  now: Research Scientist, Structural Biology Program at Oak Ridge National Laboratory
+- name: Brian Wile
+  now: Director Scientific Affairs at Teknova, Atlanta, GA
+- name: Christina Williams
+  now: Director of the IMSD Program at Vanderbilt University
+- name: Brian Wimberly
+  now: Research Scientist, U of Colorado- Boulder
+- name: Rachel Wright
+  now: Research Associate at Texas A&M University, College Station, TX

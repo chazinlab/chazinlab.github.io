@@ -5,8 +5,9 @@
 import { defineCollection, reference } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { parse as parseYaml } from 'yaml';
 import { roles } from './content/people/roles';
-import { publicationSchema } from './lib/publication-schema';
+import { publicationSchema } from './lib/publications-model';
 
 /** PubMed IDs, written as plain numbers: [38500596, 38466836] */
 const pmids = z.array(z.coerce.string()).default([]);
@@ -57,19 +58,22 @@ const members = defineCollection({
     }),
 });
 
-/** src/content/people/alumni/*.md: one file per former member. */
+/** One former member in src/content/people/alumni.yaml. */
+const alumnus = z.object({
+  name: z.string(),
+  /** Where they are now, e.g. "Assistant Professor, University of Somewhere". Leave it out if unknown. */
+  now: z.string().optional(),
+  /** Set to true for an alumnus who has died: the page shows "In memoriam". */
+  inMemoriam: z.literal(true).optional(),
+});
+
+/** src/content/people/alumni.yaml: every former member, in one list. */
 const alumni = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/people/alumni' }),
-  schema: z.object({
-    name: z.string(),
-    /** Their role while in the lab, e.g. "Postdoctoral Fellow". */
-    role: z.string(),
-    /** The years they joined and left, e.g. from: 2015 and to: 2020 */
-    from: z.int(),
-    to: z.int(),
-    /** Where they are now, e.g. "Assistant Professor, University of Somewhere". */
-    nowAt: z.string(),
+  loader: file('src/content/people/alumni.yaml', {
+    // Astro identifies each item by an `id`; an alumnus's name is theirs.
+    parser: (text) => z.array(alumnus).parse(parseYaml(text)).map((item) => ({ id: item.name, ...item })),
   }),
+  schema: alumnus,
 });
 
 /** src/content/pages/home.md: the text below the --- is the mission sentence. */

@@ -15,7 +15,7 @@ The website rebuilds itself within a few minutes. If something is wrong with the
 
 ## How content files are laid out
 
-Each person and project is one `.md` file. The part between the two `---` lines holds **settings**; the text below them is what appears on the page:
+Each current member and project is one `.md` file. The part between the two `---` lines holds **settings**; the text below them is what appears on the page:
 
 ```markdown
 ---
@@ -27,7 +27,7 @@ Jane studies how proteins repair damaged DNA. Outside the lab she plays the cell
 ```
 
 - Lines starting with `#` inside the settings are notes. They're ignored, so you can "switch on" a setting by deleting the `#`.
-- If a value contains a colon (`:`), wrap it in quotes: `nowAt: 'Scientist: Structural Biology, Genentech'`.
+- If a value contains a colon (`:`), wrap it in quotes: `caption: 'RPA: the single-stranded DNA binding protein'`.
 - Anything marked `[Placeholder]` still needs real text.
 
 ## Common tasks
@@ -41,18 +41,16 @@ Jane studies how proteins repair damaged DNA. Outside the lab she plays the cell
 4. **Email (optional):** add `email: jane.doe@vanderbilt.edu`.
 
 ### When someone leaves the lab
-1. Create a new file in `src/content/people/alumni/` with this content:
-   ```markdown
-   ---
-   name: Jane Doe
-   role: Graduate Student
-   from: 2021
-   to: 2026
-   nowAt: 'Postdoctoral Fellow, Stanford University'
-   ---
+1. Open `src/content/people/alumni.yaml`, the list of all alumni, and add two lines for them anywhere in the list:
+   ```yaml
+   - name: Jane Doe
+     now: Postdoctoral Fellow, Stanford University
    ```
-   `from` and `to` are the years they joined and left. The People page shows them as "2021–2026", most recent first.
+   `now` is where they are today; leave that line out if you don't know yet. The People page sorts alumni by last name automatically.
 2. Delete their file (and photo) from `src/content/people/current/`.
+
+### Update where an alumnus is now
+Open `src/content/people/alumni.yaml`, find their name, and change the `now` line below it.
 
 ### Add or edit a research project
 - Projects live in `src/content/research/`, one file per project.

@@ -1,7 +1,7 @@
 ---
 import { Font } from 'astro:assets';
 import { site } from '../site.config';
-import { contactPage } from '../lib/pages';
+import { contactDetails } from '../lib/pages';
 import '../styles/global.css';
 
 interface Props {
@@ -20,7 +20,7 @@ const nav = [
   { href: '/contact', label: 'Contact' },
 ];
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
-const contact = await contactPage();
+const contact = await contactDetails();
 ---
 
 <!doctype html>
@@ -30,7 +30,9 @@ const contact = await contactPage();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title ? `${title} · ${site.name}` : site.name}</title>
     <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <Font cssVariable="--font-sans" preload />
   </head>
   <body>
@@ -62,11 +64,11 @@ const contact = await contactPage();
         <div>
           <p class="footer-name">{site.name}</p>
           <address>
-            {contact.data.address.map((line) => <span>{line}</span>)}
+            {contact.address.map((line) => <span>{line}</span>)}
           </address>
         </div>
         <p>
-          <a href={`mailto:${contact.data.email}`}>{contact.data.email}</a>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
         </p>
       </div>
     </footer>

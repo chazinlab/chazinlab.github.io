@@ -1,38 +1,16 @@
-/** Everything the pages need to know about the publication list. */
+/** The only reader of the publication list: pages get render-ready models from here. */
 import { getCollection } from 'astro:content';
-import { newestFirst, type Publication } from './publication-schema';
+import { featured, findByPmid, groupByYear, type FindByPmid, type Publication } from './publications-model';
 
-const HOME_COUNT = 5;
-
-async function allPublications(): Promise<Publication[]> {
-  const entries = await getCollection('publications');
-  return entries.map((entry) => entry.data).sort(newestFirst);
-}
+const allPublications = async (): Promise<Publication[]> =>
+  (await getCollection('publications')).map((entry) => entry.data);
 
 /** Publications grouped by year, newest year first. */
-export async function publicationsByYear(): Promise<{ year: number; publications: Publication[] }[]> {
-  const groups = Map.groupBy(await allPublications(), (pub) => pub.year);
-  return [...groups].map(([year, publications]) => ({ year, publications }));
-}
-
-/**
- * The publications with these PMIDs, in the order given.
- * An unknown PMID stops the build: it is almost always a typo in a content file.
- */
-export async function publicationsById(ids: readonly string[]): Promise<Publication[]> {
-  const byId = new Map((await allPublications()).map((pub) => [pub.id, pub]));
-  return ids.map((id) => {
-    const pub = byId.get(id);
-    if (!pub) throw new Error(`PMID ${id} is not in the publication list. Check for a typo, or run \`npm run publications\`.`);
-    return pub;
-  });
-}
+export const publicationsByYear = async () => groupByYear(await allPublications());
 
 /** The home-page list: the featured papers, or the most recent ones until any are chosen. */
-export async function featuredPublications(
-  featuredIds: readonly string[],
-): Promise<{ heading: string; publications: Publication[] }> {
-  return featuredIds.length > 0
-    ? { heading: 'Featured Publications', publications: await publicationsById(featuredIds) }
-    : { heading: 'Recent Publications', publications: (await allPublications()).slice(0, HOME_COUNT) };
-}
+export const featuredPublications = async (featuredPmids: readonly string[]) =>
+  featured(await allPublications(), featuredPmids);
+
+/** A lookup of publications by PMID; an unknown PMID stops the build. */
+export const publicationFinder = async (): Promise<FindByPmid> => findByPmid(await allPublications());

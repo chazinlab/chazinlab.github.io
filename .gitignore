@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # Claude Code local (per-machine) settings
 .claude/settings.local.json
+.claude/launch.json

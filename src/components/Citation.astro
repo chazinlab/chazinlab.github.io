@@ -1,19 +1,12 @@
 ---
 /** One paper in standard citation format, with the PI's name in bold. */
-import { site } from '../site.config';
-import type { Publication } from '../lib/publication-schema';
+import { citationSource, isPi, type Publication } from '../lib/publications-model';
 
 interface Props {
   pub: Publication;
 }
 
 const { pub } = Astro.props;
-// PubMed's citation style, e.g. "2024;300(4):105-12." (parts are left out when PubMed has none).
-let source = String(pub.year);
-if (pub.volume || pub.issue) source += `;${pub.volume}`;
-if (pub.issue) source += `(${pub.issue})`;
-if (pub.pages) source += `:${pub.pages}`;
-source += '.';
 ---
 
 <div class="citation">
@@ -22,13 +15,13 @@ source += '.';
     {
       pub.authors.map((name, i) => (
         <>
-          {name === site.piPubmedName ? <strong>{name}</strong> : name}
+          {isPi(name) ? <strong>{name}</strong> : name}
           {i < pub.authors.length - 1 && ', '}
         </>
       ))
     }
   </p>
-  <p class="source"><i>{pub.journal}</i>. {source}</p>
+  <p class="source"><i>{pub.journal}</i>. {citationSource(pub)}</p>
   <p class="links">
     <a href={`https://pubmed.ncbi.nlm.nih.gov/${pub.id}/`}>PubMed</a>
     {pub.doi && <a href={`https://doi.org/${pub.doi}`}>DOI</a>}

@@ -2,7 +2,7 @@
  * PubMed adapter: turns a PubMed search into a clean, newest-first list of publications.
  * Uses NCBI E-utilities (esearch → esummary): https://www.ncbi.nlm.nih.gov/books/NBK25499/
  */
-import { newestFirst, publicationSchema, type Publication } from '../../src/lib/publication-schema.ts';
+import { newestFirst, publicationSchema, type Publication } from '../../src/lib/publications-model.ts';
 
 interface Options {
   fetch?: typeof globalThis.fetch;
@@ -71,14 +71,12 @@ export async function fetchPublications(
 
 function toPublication(record: EsummaryRecord): Publication {
   const articleId = (type: string) => record.articleids.find((a) => a.idtype === type)?.value ?? null;
-  const date = record.sortpubdate.slice(0, 10).replaceAll('/', '-');
   const parsed = publicationSchema.safeParse({
     id: record.uid,
     title: plainText(record.title),
     authors: record.authors.map((a) => a.name),
     journal: record.source,
-    date,
-    year: Number(date.slice(0, 4)),
+    date: record.sortpubdate.slice(0, 10).replaceAll('/', '-'),
     volume: record.volume,
     issue: record.issue,
     pages: record.pages,

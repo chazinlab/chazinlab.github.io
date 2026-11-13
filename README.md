@@ -3,7 +3,6 @@
 The website of the Chazin Lab, Department of Biochemistry, Vanderbilt University. It's a static site built with [Astro](https://astro.build).
 
 - **Lab members updating content:** see [HOW_TO_UPDATE.md](HOW_TO_UPDATE.md).
-- **Design decisions:** see [PROJECT_BRIEF.md](PROJECT_BRIEF.md).
 - **Vocabulary** (Theme, Project, Member, Alumnus, Key paper, Featured paper): see [GLOSSARY.md](GLOSSARY.md).
 
 ## Developing
@@ -16,7 +15,7 @@ Requires Node 22.23 or later.
 | `npm run dev` | Start a local preview at http://localhost:4321 |
 | `npm run build` | Build the site into `dist/` |
 | `npm run publications` | Refresh `src/data/publications.json` from PubMed |
-| `npm test` | Run the PubMed adapter tests |
+| `npm test` | Run the tests |
 | `npx astro check` | Type-check everything |
 
 ## Where things live
@@ -29,15 +28,17 @@ src/
     themes/               One file per research theme
     research/             One file per project
     people/current/       One file per current member
-    people/alumni/        One file per former member
+    people/alumni.yaml    Every former member, in one list
     people/roles.ts       The roles a member can have, in People-page order
     pages/home.md         Mission, home figure, featured papers
     pages/contact.md      Address, email, directions, "Joining the lab"
   data/publications.json  Generated from PubMed: don't edit by hand
-  lib/                    Data modules (publications, research themes, people, pages)
+  lib/                    One module per area (publications, research, people, pages) reads the content;
+                          its *-model.ts holds the rules (ordering, citations) and is tested with plain Node
   components/             Citation, Figure, PersonCard, ProjectCard
   layouts/BaseLayout.astro  Header, navigation, footer
   pages/                  One file per page
   styles/global.css       Design tokens: colors, spacing, type
 scripts/                  PubMed fetcher and its tests
+public/                   Site icons
 ```

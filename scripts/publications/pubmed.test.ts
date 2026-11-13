@@ -49,7 +49,6 @@ test('normalizes PubMed records into publications', async () => {
     authors: ['Smith J', 'Chazin WJ'],
     journal: 'J Biol Chem',
     date: '2024-03-15',
-    year: 2024,
     volume: '300',
     issue: '4',
     pages: '105-12',

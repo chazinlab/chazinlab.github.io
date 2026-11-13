@@ -5,13 +5,17 @@
  * This file is also read by scripts/fetch-publications.ts, which runs outside Astro,
  * so it must not import anything from 'astro:*'.
  */
+
+/** How the PI's name is written in PubMed author lists. */
+const piPubmedName = 'Chazin WJ';
+
 export const site = {
   name: 'Chazin Lab',
   affiliation: 'Department of Biochemistry, Vanderbilt University',
 
-  /** The PubMed search that defines the publication list. */
-  pubmedQuery: 'Chazin WJ[Author]',
+  /** Shown in bold in citations. */
+  piPubmedName,
 
-  /** How the PI's name is written in PubMed author lists (shown in bold in citations). */
-  piPubmedName: 'Chazin WJ',
+  /** The PubMed search that defines the publication list. */
+  pubmedQuery: `${piPubmedName}[Author]`,
 };

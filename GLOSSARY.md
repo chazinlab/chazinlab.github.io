@@ -23,7 +23,7 @@ A member's position in the lab, such as Postdoctoral Fellow. The roles form one 
 _Avoid_: Title, position, rank
 
 **Alumnus**:
-A former member, listed with their years in the lab and where they are now. The plural is alumni.
+A former member, listed with where they are now. The plural is alumni.
 _Avoid_: Former member, past member, graduate
 
 **PI**:

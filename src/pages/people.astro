@@ -16,24 +16,23 @@ const [members, alumni] = await Promise.all([people.members(), people.alumni()])
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2>Alumni</h2>
-      <ul class="alumni">
-        {
-          alumni.map((alum) => (
-            <li>
-              <span class="alum-name">{alum.name}</span>
-              <span class="alum-meta">
-                {alum.role}, {alum.years}
-              </span>
-              <span class="alum-now">{alum.nowAt}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
+  {
+    alumni.length > 0 && (
+      <section class="section">
+        <div class="container">
+          <h2>Alumni</h2>
+          <ul class="alumni">
+            {alumni.map((alum) => (
+              <li>
+                <span class="alum-name">{alum.name}</span>
+                {alum.inMemoriam ? <i class="in-memoriam">In memoriam</i> : alum.now}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
 </BaseLayout>
 
 <style>
@@ -59,7 +58,7 @@ const [members, alumni] = await Promise.all([people.members(), people.alumni()])
 
   @media (min-width: 48rem) {
     .alumni li {
-      grid-template-columns: 1fr 1fr 1.5fr;
+      grid-template-columns: 1fr 2fr;
     }
   }
 
@@ -68,7 +67,7 @@ const [members, alumni] = await Promise.all([people.members(), people.alumni()])
     font-weight: 600;
   }
 
-  .alum-meta {
+  .in-memoriam {
     color: var(--muted);
   }
 </style>
