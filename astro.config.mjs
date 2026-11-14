@@ -1,9 +1,13 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://chazinlab.github.io',
+
+  // Writes sitemap-index.xml at build time so search engines can find every page.
+  integrations: [sitemap()],
 
   fonts: [
     {
