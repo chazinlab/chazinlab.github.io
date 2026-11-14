@@ -2,6 +2,7 @@
 import { Font, Image } from 'astro:assets';
 import { site } from '../site.config';
 import { contactDetails } from '../lib/pages';
+import { versionedPublicPath } from '../lib/versioned-asset';
 import '../styles/global.css';
 import labLogo from '../assets/chazin-lab-logo-white.png';
 import vanderbiltV from '../assets/vanderbilt-v.png';
@@ -48,9 +49,9 @@ const shareImage = new URL('/og-image.png', Astro.site);
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={`${site.name} logo`} />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href={versionedPublicPath('/favicon.ico')} sizes="48x48" />
+    <link rel="icon" type="image/png" href={versionedPublicPath('/favicon.png')} sizes="192x192" />
+    <link rel="apple-touch-icon" href={versionedPublicPath('/apple-touch-icon.png')} />
     <Font cssVariable="--font-sans" preload />
   </head>
   <body>
