@@ -1,0 +1,9 @@
+# Content that lab members edit by hand on GitHub, generated data, and prose docs.
+src/content/
+src/data/
+*.md
+plans/
+package-lock.json
+dist/
+.astro/
+.claude/

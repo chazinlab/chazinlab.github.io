@@ -17,6 +17,8 @@ Requires Node 22.23 or later.
 | `npm run publications` | Refresh `src/data/publications.json` from PubMed |
 | `npm test` | Run the tests |
 | `npx astro check` | Type-check everything |
+| `npm run format` | Format the code with Prettier |
+| `npm run format:check` | Check the formatting without changing files (also runs on every deploy) |
 
 ## Where things live
 

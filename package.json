@@ -11,7 +11,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "publications": "node scripts/fetch-publications.ts",
-    "test": "node --test \"scripts/**/*.test.ts\" \"src/**/*.test.ts\""
+    "test": "node --test \"scripts/**/*.test.ts\" \"src/**/*.test.ts\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.5",
@@ -21,6 +23,8 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
     "@types/node": "^26.6.6",
+    "prettier": "^3.10.1",
+    "prettier-plugin-astro": "^1.1.2",
     "typescript": "^6.0.3"
   }
 }
