@@ -2,7 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { contactPage } from '../lib/pages';
 
-const { data: { name, email, phone, address, directionsUrl }, Content } = await contactPage();
+const {
+  data: { name, email, phone, address, directionsUrl },
+  Content,
+} = await contactPage();
 ---
 
 <BaseLayout title="Contact">
@@ -14,13 +17,19 @@ const { data: { name, email, phone, address, directionsUrl }, Content } = await 
       <div>
         {name && <h2>{name}</h2>}
         <address>
-          {address.map((line) => <span>{line}</span>)}
+          {address.map((line) => (
+            <span>{line}</span>
+          ))}
         </address>
         <p class="reach">
           {phone && <a href={`tel:${phone.replace(/[^\d+]/g, '')}`}>{phone}</a>}
           <a href={`mailto:${email}`}>{email}</a>
         </p>
-        {directionsUrl && <p><a href={directionsUrl}>Directions →</a></p>}
+        {directionsUrl && (
+          <p>
+            <a href={directionsUrl}>Directions →</a>
+          </p>
+        )}
       </div>
       <div>
         <h2>Joining the lab</h2>

@@ -16,7 +16,9 @@ const [themes, featured] = await Promise.all([researchThemes(), featuredPublicat
     <div class="container">
       <p class="eyebrow">{site.affiliation}</p>
       <h1>{site.name}</h1>
-      <div class="lede mission"><home.Content /></div>
+      <div class="lede mission">
+        <home.Content />
+      </div>
       <Figure image={home.data.figure} caption={home.data.caption} priority />
     </div>
   </section>
@@ -25,15 +27,13 @@ const [themes, featured] = await Promise.all([researchThemes(), featuredPublicat
     <div class="container">
       <h2>Research</h2>
       <div class="themes">
-        {
-          themes.map((theme) => (
-            <a class="theme-card" href={`/research#${theme.id}`}>
-              <h3>{theme.name}</h3>
-              <theme.Summary />
-              <span class="more">Explore →</span>
-            </a>
-          ))
-        }
+        {themes.map((theme) => (
+          <a class="theme-card" href={`/research#${theme.id}`}>
+            <h3>{theme.name}</h3>
+            <theme.Summary />
+            <span class="more">Explore →</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -42,15 +42,15 @@ const [themes, featured] = await Promise.all([researchThemes(), featuredPublicat
     <div class="container">
       <h2>{featured.heading}</h2>
       <ul class="pub-list">
-        {
-          featured.publications.map((pub) => (
-            <li>
-              <Citation pub={pub} />
-            </li>
-          ))
-        }
+        {featured.publications.map((pub) => (
+          <li>
+            <Citation pub={pub} />
+          </li>
+        ))}
       </ul>
-      <p><a href="/publications">All publications →</a></p>
+      <p>
+        <a href="/publications">All publications →</a>
+      </p>
     </div>
   </section>
 </BaseLayout>

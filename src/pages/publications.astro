@@ -15,25 +15,25 @@ const total = years.reduce((sum, group) => sum + group.publications.length, 0);
       <p class="lede">{total} publications, updated automatically from PubMed.</p>
 
       <div class="search" hidden>
-        <label for="pub-search" class="visually-hidden">Search publications</label>
+        <label for="pub-search" class="visually-hidden">
+          Search publications
+        </label>
         <input id="pub-search" type="search" placeholder="Title, author, journal, year" />
         <p id="pub-status" role="status" aria-live="polite"></p>
       </div>
 
-      {
-        years.map(({ year, publications }) => (
-          <section class="year-group">
-            <h2>{year}</h2>
-            <ul>
-              {publications.map((pub) => (
-                <li data-search={searchText(pub)}>
-                  <Citation pub={pub} />
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))
-      }
+      {years.map(({ year, publications }) => (
+        <section class="year-group">
+          <h2>{year}</h2>
+          <ul>
+            {publications.map((pub) => (
+              <li data-search={searchText(pub)}>
+                <Citation pub={pub} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </div>
   </section>
 </BaseLayout>

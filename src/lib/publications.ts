@@ -2,8 +2,7 @@
 import { getCollection } from 'astro:content';
 import { featured, findByPmid, groupByYear, type FindByPmid, type Publication } from './publications-model';
 
-const allPublications = async (): Promise<Publication[]> =>
-  (await getCollection('publications')).map((entry) => entry.data);
+const allPublications = async (): Promise<Publication[]> => (await getCollection('publications')).map((entry) => entry.data);
 
 /** Publications grouped by year, newest year first. */
 export const publicationsByYear = async () => groupByYear(await allPublications());

@@ -16,15 +16,13 @@ const { image, caption, sizes = '(min-width: 72rem) 72rem, 100vw', priority = fa
 ---
 
 <figure>
-  {
-    image ? (
-      <Image src={image} alt={caption} sizes={sizes} widths={[480, 800, 1200, 1600]} priority={priority} />
-    ) : (
-      <div class="placeholder" aria-hidden="true">
-        Figure placeholder
-      </div>
-    )
-  }
+  {image ? (
+    <Image src={image} alt={caption} sizes={sizes} widths={[480, 800, 1200, 1600]} priority={priority} />
+  ) : (
+    <div class="placeholder" aria-hidden="true">
+      Figure placeholder
+    </div>
+  )}
   <figcaption>{caption}</figcaption>
 </figure>
 

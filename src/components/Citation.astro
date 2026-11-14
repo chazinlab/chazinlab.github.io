@@ -12,16 +12,16 @@ const { pub } = Astro.props;
 <div class="citation">
   <p class="title">{pub.title}</p>
   <p class="authors">
-    {
-      pub.authors.map((name, i) => (
-        <>
-          {isPi(name) ? <strong>{name}</strong> : name}
-          {i < pub.authors.length - 1 && ', '}
-        </>
-      ))
-    }
+    {pub.authors.map((name, i) => (
+      <>
+        {isPi(name) ? <strong>{name}</strong> : name}
+        {i < pub.authors.length - 1 && ', '}
+      </>
+    ))}
   </p>
-  <p class="source"><i>{pub.journal}</i>. {citationSource(pub)}</p>
+  <p class="source">
+    <i>{pub.journal}</i>. {citationSource(pub)}
+  </p>
   <p class="links">
     <a href={`https://pubmed.ncbi.nlm.nih.gov/${pub.id}/`}>PubMed</a>
     {pub.doi && <a href={`https://doi.org/${pub.doi}`}>DOI</a>}

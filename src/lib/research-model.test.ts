@@ -52,7 +52,7 @@ test('a theme without projects is still listed', () => {
   assert.deepEqual(genome.projects, []);
 });
 
-test("gives each project its key papers in the order the project lists them", () => {
+test('gives each project its key papers in the order the project lists them', () => {
   const [genome] = assembleThemes(
     [theme('genome', 1)],
     [project('ner', 'genome', 1, ['3', '1'])],

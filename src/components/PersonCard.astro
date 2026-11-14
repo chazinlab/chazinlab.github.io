@@ -11,18 +11,18 @@ const { name, initials, role, photo, email, Bio } = Astro.props.member;
 ---
 
 <article class="person">
-  {
-    photo ? (
-      <Image class="photo" src={photo} alt={name} width={400} height={500} fit="cover" position="top" />
-    ) : (
-      <div class="photo initials" aria-hidden="true">
-        {initials}
-      </div>
-    )
-  }
+  {photo ? (
+    <Image class="photo" src={photo} alt={name} width={400} height={500} fit="cover" position="top" />
+  ) : (
+    <div class="photo initials" aria-hidden="true">
+      {initials}
+    </div>
+  )}
   <h3>{name}</h3>
   <p class="role">{role}</p>
-  <div class="bio"><Bio /></div>
+  <div class="bio">
+    <Bio />
+  </div>
   {email && <a href={`mailto:${email}`}>{email}</a>}
 </article>
 

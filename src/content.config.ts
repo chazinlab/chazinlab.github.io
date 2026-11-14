@@ -71,7 +71,11 @@ const alumnus = z.object({
 const alumni = defineCollection({
   loader: file('src/content/people/alumni.yaml', {
     // Astro identifies each item by an `id`; an alumnus's name is theirs.
-    parser: (text) => z.array(alumnus).parse(parseYaml(text)).map((item) => ({ id: item.name, ...item })),
+    parser: (text) =>
+      z
+        .array(alumnus)
+        .parse(parseYaml(text))
+        .map((item) => ({ id: item.name, ...item })),
   }),
   schema: alumnus,
 });

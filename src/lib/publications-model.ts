@@ -30,8 +30,7 @@ export type Publication = z.infer<typeof publicationSchema>;
 const HOME_COUNT = 5;
 
 /** Sort comparator: newest first; same-day papers by PMID, newest first. */
-export const newestFirst = (a: Publication, b: Publication) =>
-  b.date.localeCompare(a.date) || Number(b.id) - Number(a.id);
+export const newestFirst = (a: Publication, b: Publication) => b.date.localeCompare(a.date) || Number(b.id) - Number(a.id);
 
 const yearOf = (pub: Publication): number => Number(pub.date.slice(0, 4));
 

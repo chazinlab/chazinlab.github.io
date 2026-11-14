@@ -17,20 +17,18 @@ const { title, figure, caption, Description, keyPapers } = Astro.props.project;
     <Figure image={figure} caption={caption} sizes="(min-width: 60rem) 34rem, 100vw" />
     <div class="text">
       <Description />
-      {
-        keyPapers.length > 0 && (
-          <section class="key-papers">
-            <h4 class="eyebrow">Key papers</h4>
-            <ul>
-              {keyPapers.map((pub) => (
-                <li>
-                  <Citation pub={pub} />
-                </li>
-              ))}
-            </ul>
-          </section>
-        )
-      }
+      {keyPapers.length > 0 && (
+        <section class="key-papers">
+          <h4 class="eyebrow">Key papers</h4>
+          <ul>
+            {keyPapers.map((pub) => (
+              <li>
+                <Citation pub={pub} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   </div>
 </article>

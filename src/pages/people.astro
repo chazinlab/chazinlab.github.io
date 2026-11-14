@@ -11,28 +11,28 @@ const [members, alumni] = await Promise.all([people.members(), people.alumni()])
     <div class="container">
       <h1>People</h1>
       <div class="members">
-        {members.map((member) => <PersonCard member={member} />)}
+        {members.map((member) => (
+          <PersonCard member={member} />
+        ))}
       </div>
     </div>
   </section>
 
-  {
-    alumni.length > 0 && (
-      <section class="section">
-        <div class="container">
-          <h2>Alumni</h2>
-          <ul class="alumni">
-            {alumni.map((alum) => (
-              <li>
-                <span class="alum-name">{alum.name}</span>
-                {alum.inMemoriam ? <i class="in-memoriam">In memoriam</i> : alum.now}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    )
-  }
+  {alumni.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2>Alumni</h2>
+        <ul class="alumni">
+          {alumni.map((alum) => (
+            <li>
+              <span class="alum-name">{alum.name}</span>
+              {alum.inMemoriam ? <i class="in-memoriam">In memoriam</i> : alum.now}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <style>

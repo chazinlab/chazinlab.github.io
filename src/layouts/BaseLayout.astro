@@ -54,30 +54,23 @@ const shareImage = new URL('/og-image.png', Astro.site);
     <Font cssVariable="--font-sans" preload />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
     <header class="site-header">
       <div class="container header-inner">
         <a class="wordmark" href="/">
-          <Image
-            class="wordmark-lab"
-            src={labLogo}
-            alt={site.name}
-            height={100}
-            loading="eager"
-            densities={[1, 2, 3]}
-          />
+          <Image class="wordmark-lab" src={labLogo} alt={site.name} height={100} loading="eager" densities={[1, 2, 3]} />
         </a>
         <nav aria-label="Main">
           <ul>
-            {
-              nav.map(({ href, label }) => (
-                <li>
-                  <a href={href} aria-current={href === currentPath ? 'page' : undefined}>
-                    {label}
-                  </a>
-                </li>
-              ))
-            }
+            {nav.map(({ href, label }) => (
+              <li>
+                <a href={href} aria-current={href === currentPath ? 'page' : undefined}>
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
@@ -90,17 +83,13 @@ const shareImage = new URL('/og-image.png', Astro.site);
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-id">
-          <Image
-            class="footer-logo"
-            src={vanderbiltV}
-            alt="Vanderbilt University"
-            height={40}
-            densities={[1, 2, 3]}
-          />
+          <Image class="footer-logo" src={vanderbiltV} alt="Vanderbilt University" height={40} densities={[1, 2, 3]} />
           <div>
             <p class="footer-name">{site.name}</p>
             <address>
-              {contact.address.map((line) => <span>{line}</span>)}
+              {contact.address.map((line) => (
+                <span>{line}</span>
+              ))}
             </address>
           </div>
         </div>

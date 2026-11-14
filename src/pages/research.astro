@@ -13,23 +13,21 @@ const themes = await researchThemes();
     </div>
   </section>
 
-  {
-    themes.map((theme) => (
-      <section class="section" id={theme.id}>
-        <div class="container">
-          <h2>{theme.name}</h2>
-          <div class="lede">
-            <theme.Summary />
-          </div>
-          <div class="projects">
-            {theme.projects.map((project) => (
-              <ProjectCard project={project} />
-            ))}
-          </div>
+  {themes.map((theme) => (
+    <section class="section" id={theme.id}>
+      <div class="container">
+        <h2>{theme.name}</h2>
+        <div class="lede">
+          <theme.Summary />
         </div>
-      </section>
-    ))
-  }
+        <div class="projects">
+          {theme.projects.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
 </BaseLayout>
 
 <style>

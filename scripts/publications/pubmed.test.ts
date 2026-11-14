@@ -71,7 +71,10 @@ test('sorts newest first', async () => {
     '3': record('3', { sortpubdate: '2021/01/01 00:00' }),
   });
   const pubs = await fetchPublications('q', { fetch, pauseMs: 0 });
-  assert.deepEqual(pubs.map((p) => p.id), ['2', '3', '1']);
+  assert.deepEqual(
+    pubs.map((p) => p.id),
+    ['2', '3', '1'],
+  );
 });
 
 test('excludes errata and preprints in the search itself', async () => {
@@ -84,7 +87,10 @@ test('excludes errata and preprints in the search itself', async () => {
 test('skips PMIDs that PubMed returns no summary for (e.g. withdrawn papers)', async () => {
   const { fetch } = fakePubMed({ '111': record('111') }, ['111', '999']);
   const pubs = await fetchPublications('q', { fetch, pauseMs: 0 });
-  assert.deepEqual(pubs.map((p) => p.id), ['111']);
+  assert.deepEqual(
+    pubs.map((p) => p.id),
+    ['111'],
+  );
 });
 
 test('rejects a malformed record instead of saving bad data', async () => {
@@ -93,9 +99,7 @@ test('rejects a malformed record instead of saving bad data', async () => {
 });
 
 test('requests summaries in batches of 200', async () => {
-  const records = Object.fromEntries(
-    Array.from({ length: 450 }, (_, i) => [String(i + 1), record(String(i + 1))]),
-  );
+  const records = Object.fromEntries(Array.from({ length: 450 }, (_, i) => [String(i + 1), record(String(i + 1))]));
   const { fetch, requests } = fakePubMed(records);
   const pubs = await fetchPublications('q', { fetch, pauseMs: 0 });
   assert.equal(pubs.length, 450);
