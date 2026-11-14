@@ -1,12 +1,12 @@
 ---
-title: '[Placeholder] Innate immunity project title'
+title: '[Placeholder]'
 theme: innate-immunity
 order: 2
 # figure: ./figures/your-figure.png
-caption: '[Placeholder] One sentence describing what the figure shows.'
+caption: '[Placeholder]'
 keyPapers: []
 ---
 
-[Placeholder] First paragraph: the biological question this project addresses and why it matters. Two to four sentences written for a curious undergraduate or prospective graduate student.
+[Placeholder]
 
-[Placeholder] Second paragraph: what the lab has found and the approaches used (for example NMR, X-ray crystallography, cryo-EM, biochemistry, cell biology).
+[Placeholder]
