@@ -168,6 +168,36 @@ const shareImage = new URL('/og-image.png', Astro.site);
     border-bottom-color: var(--link);
   }
 
+  /* Phones: a smaller logo, and the five links spread across one line instead of wrapping. */
+  @media (max-width: 30rem) {
+    .wordmark-lab {
+      height: 4.5rem;
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    nav ul {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 0;
+    }
+
+    nav a {
+      display: block;
+      font-size: 0.8125rem;
+      padding-block: var(--space-1) 0.25rem;
+    }
+  }
+
+  /* Very narrow phones: a touch smaller so the labels do not touch. */
+  @media (max-width: 21rem) {
+    nav a {
+      font-size: 0.75rem;
+    }
+  }
+
   .site-footer {
     border-top: 1px solid var(--rule);
     margin-top: var(--space-5);
