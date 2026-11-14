@@ -12,13 +12,15 @@ This is a repository setting, not a code problem, and no plan here fixes it. The
 
 | Plan | Title | Priority | Effort | Depends on | Status |
 |------|-------|----------|--------|------------|--------|
-| 001  | Muted text passes contrast checks; skip-to-content link | P1 | S | - | TODO |
-| 002  | Branded "Page not found" page | P1 | S | - | TODO |
-| 003  | Link-preview tags, share image, canonical URL, sitemap | P2 | S-M | 001, 002 | TODO |
-| 004  | Phone header and search hint polish | P2 | S | 001, 003 | TODO |
-| 005  | Image size guidance in HOW_TO_UPDATE.md | P3 | S | - | TODO |
-| 006  | Workflows on action versions that run on Node 24 | P3 | S | - | TODO |
-| 007  | Prettier formatting check in CI | P3 | S-M | 001 to 006 | TODO |
+| 001  | Muted text passes contrast checks; skip-to-content link | P1 | S | - | DONE |
+| 002  | Branded "Page not found" page | P1 | S | - | DONE |
+| 003  | Link-preview tags, share image, canonical URL, sitemap | P2 | S-M | 001, 002 | DONE |
+| 004  | Phone header and search hint polish | P2 | S | 001, 003 | DONE |
+| 005  | Image size guidance in HOW_TO_UPDATE.md | P3 | S | - | DONE |
+| 006  | Workflows on action versions that run on Node 24 | P3 | S | - | DONE |
+| 007  | Prettier formatting check in CI | P3 | S-M | 001 to 006 | DONE |
+
+All seven plans were executed and reviewed on 2026-11-14. Plans 002 and 004 each needed one revision for a flaw in the plan itself: the 404 page links lost the spaces between them (Astro drops line breaks between inline elements), and the phone nav underline sat too far below its label. Plan 007 settled on a print width of 125. Still to confirm on GitHub: the first "Deploy site" run on the new action versions.
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) | REJECTED (with one-line rationale - finding fixed independently or approach abandoned)
 
