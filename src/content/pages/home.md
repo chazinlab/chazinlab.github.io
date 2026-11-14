@@ -8,4 +8,4 @@ caption: 'The Chazin Lab, 2025.'
 featuredPapers: []
 ---
 
-[Placeholder] One sentence describing what the lab studies and why it matters.
+[Placeholder]
