@@ -37,7 +37,7 @@ Jane studies how proteins repair damaged DNA. Outside the lab she plays the cell
 2. Change `name` and `role`. Then write their bio below the `---`.
    - The page places people by `role` automatically, and sorts people with the same role by last name, so there is nothing to renumber.
    - `role` must match one of the roles listed in `src/content/people/roles.ts` exactly, including capital letters. To use a new role, or to change which roles come first, edit the list in that file.
-3. **Photo (optional):** upload a head-and-shoulders photo, upright (taller than wide), to `src/content/people/current/photos/` (for example `jane-doe.jpg`), then add the line `photo: ./photos/jane-doe.jpg` to the settings.
+3. **Photo (optional):** upload a head-and-shoulders photo, upright (taller than wide), about 800 x 1000 pixels (see [Image sizes](#image-sizes)), to `src/content/people/current/photos/` (for example `jane-doe.jpg`), then add the line `photo: ./photos/jane-doe.jpg` to the settings.
 4. **Email (optional):** add `email: jane.doe@vanderbilt.edu`.
 
 ### When someone leaves the lab
@@ -56,20 +56,30 @@ Open `src/content/people/alumni.yaml`, find their name, and change the `now` lin
 - Projects live in `src/content/research/`, one file per project.
 - `theme` is the file name of a theme in `src/content/themes/`, without `.md`, for example `genome-maintenance`.
 - `order` sets the project's position within its theme.
-- **Figure:** upload the image to `src/content/research/figures/`, then set `figure: ./figures/your-image.png`. Always write a `caption` that describes the image.
+- **Figure:** upload the image to `src/content/research/figures/`, then set `figure: ./figures/your-image.png`. Always write a `caption` that describes the image. See [Image sizes](#image-sizes) before uploading.
 - **Key papers:** list PubMed IDs (the number at the end of a PubMed link), for example `keyPapers: [38500596, 38466836]`. The paper must already be on the Publications page.
 
 ### Edit or add a research theme
 Themes live in `src/content/themes/`, one file per theme. Change `name` or the summary text below the `---`. To add a theme, copy an existing theme file and give it a new file name (for example `metal-homeostasis.md`). Projects then use that file name as their `theme`. `order` sets the theme's position on the Home and Research pages.
 
 ### Change the home page text or figure
-Edit `src/content/pages/home.md`. The sentence below the `---` is the mission statement. To add the figure, upload the image to `src/content/pages/` and set `figure: ./your-image.png`. Always keep a `caption` that describes the image.
+Edit `src/content/pages/home.md`. The sentence below the `---` is the mission statement. To add the figure, upload the image to `src/content/pages/` and set `figure: ./your-image.png`. Always keep a `caption` that describes the image. See [Image sizes](#image-sizes) before uploading.
 
 ### Feature papers on the home page
 In `src/content/pages/home.md`, list PubMed IDs: `featuredPapers: [38500596, 38466836]`. Leave it as `[]` to show the five most recent papers instead.
 
 ### Change the address, email, directions link or "Joining the lab" text
 Edit `src/content/pages/contact.md`. The settings at the top hold Dr. Chazin's name, the email, the phone number, the address (one line per `-`) and the directions link. The text below the `---` is the "Joining the lab" section. The address also appears in the footer of every page.
+
+### Image sizes
+
+The website shrinks every image for visitors automatically, but the file you upload is kept in the project's history forever, so please don't upload straight from a camera or phone.
+
+- **Headshots:** about 800 x 1000 pixels (upright), and no smaller than 400 x 500. Under 500 KB.
+- **Figures and the home page photo:** about 1600 pixels wide. Under 1 MB.
+- Use `.jpg` for photos and `.png` for diagrams with text or sharp lines.
+
+To shrink an image on a Mac, open it in Preview, choose **Tools > Adjust Size…**, set the width or height, and save. On Windows, open it in Photos and choose **Resize image**.
 
 ## Publications
 
